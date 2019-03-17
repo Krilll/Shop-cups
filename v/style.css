@@ -1,0 +1,245 @@
+body {
+	font-family: Caveat, cursive;;
+	font-size: 20px;
+	margin: 0;
+	background-color: #000000;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+textarea {
+	width: 100%;
+	height: 300px;
+}
+
+#header {
+	padding: 10px;
+	background: #000000 url(../images/main/header.jpeg) no-repeat center;
+	color: #FF4500;
+}
+.logo {
+	justify-content: left;
+	padding: 10px;
+}
+
+.logo img:hover {
+	transform: rotate(12deg); 
+}
+
+.headerText {
+	margin-top: -100px;
+	text-align: center;
+}
+
+/*menu*/
+#menu ul {
+	margin-top: -20px;
+	display: flex;
+	list-style:none; 
+	flex-direction: row;
+	justify-content: center;
+}
+
+#menu ul li:first-child a, .reg-name { 
+	-webkit-border-top-left-radius:12px; 
+	-webkit-border-bottom-left-radius:12px; 
+}
+
+#menu ul li:last-child a, .reg-name { 
+	-webkit-border-top-right-radius:12px; 
+	-webkit-border-bottom-right-radius:12px; 
+}
+
+#menu ul li a { 
+	padding: 10px;
+	background: black; 
+	letter-spacing: -1px; 
+	color:orange;
+}
+	
+#menu ul li a:hover { 	
+	color: black;
+	background-color:orange;
+}
+
+#menu ul li a.active { 
+	color: #46403C;
+	background: #ff8a1e; 
+}
+#menu ul li a.active:hover { 
+	color: #000000;
+}
+/*end menu*/
+
+#content {	
+	margin: 5px;
+	padding: 10px;
+	color: #FF4500;
+	background: #000000 url(../images/main/m3.jpg) repeat-y center;
+	background-size: 1000px;
+	text-align: center;
+}
+
+.main-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.main-text-item {
+	width: 500px;
+	border: 2px solid #FF4500;
+}
+
+#products {
+	margin-top: 40px;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+	color: #FF4500;
+	background: transparent;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.button {
+	color:#FF4500CC;
+	height:30px;
+	background-color: #000000;
+	border-radius: 20px;
+}
+.button:hover {
+	color: #000000;
+	background-color: #FF4500CC;
+}
+
+/*item*/
+.item {
+	background-color: #FF4500CC;
+	color: #000000;
+	border-radius: 190px;
+	padding: 10px;
+	margin: 40px;
+	width: 330px;
+	transform: rotate(10deg) scale(1.2);
+	transition: .3s ease-in-out;
+}
+
+.item:nth-child(2n) {
+    transform: rotate(-10deg) scale(1.2);
+} 
+
+.item:hover {
+    transform: rotate(0) scale(1);
+}
+
+.item a {
+	color: #000000;
+}
+
+.item a:hover {
+	color: #FFD700;
+}
+
+.add-to-basket {
+	padding: 10px;
+	border-radius: 20px;
+	border: 2px solid #000000;
+}
+.product {
+	transform: rotate(0) scale(1);
+	display: inline-block;
+	text-align: center;
+	border-radius: 30px;
+	width: 600px;
+}
+.big-item-information {
+	padding-bottom: 10px;
+}
+
+.text {
+	text-align: center;
+	max-width: 600px;
+}	
+/*end item*/
+
+/*registration*/
+.unseen {
+	display: none;
+}
+
+.reg {
+	transform: rotate(0) scale(1);
+	display: inline-block;
+	text-align: center;
+	background-color: #FF4500CC;
+	color: #000000;
+	border-radius: 190px;
+	padding: 10px;
+	margin: 40px;
+	width: 330px;
+}
+
+.field {
+	clear:both;
+	text-align:right;
+	line-height:25px;
+}
+.field label {
+	float:left;
+	padding-right:10px;
+}
+
+#registration {
+	padding-top: 10px;
+	padding-left: 50px;
+	float:left;
+}
+
+#reg-name {
+	display: flex;
+	justify-content: center;
+	letter-spacing: -1px; 
+}
+
+#reg-name .active-reg { 
+	color: #46403C;
+	padding: 4px;
+	background: #ff8a1e; 
+}
+#reg-name .not-active-reg {
+	color: #000000;
+}
+#reg-name .not-active-reg:hover {
+	color:#46403C
+}
+#reg-name .active-reg:hover { 
+	color: #000000;
+}
+
+input {
+	padding: 5px 10px;
+	margin: 5px 0;
+}
+input:focus{
+	outline: none;
+}
+
+.error-msg{
+	color: black;
+
+}
+/*end registration*/
+
+#footer {
+	padding: 10px;
+	background: #000000;
+	color: #FF4500;
+	text-align: center;
+}
+
+

@@ -1,19 +1,6 @@
 <?php
 
 require_once "config.php";
-//namespace task1;
-/*class TestModel{
-	private $object;
-	function __construct(){
-		$this->object = PDO::instance();
-
-	}
-	function test(){
-		PDO::
-	}
-
-}
-*/
 
 class DB {
 

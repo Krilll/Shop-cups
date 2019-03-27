@@ -8,7 +8,6 @@
 
 include_once ('m/User.php');
 
-
 class C_User extends C_Base
 {
 

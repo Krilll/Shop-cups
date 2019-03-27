@@ -1,8 +1,8 @@
 $(document).ready(() => {
 
-/*для телефона маска при помощи jquery*/
+	/*для телефона маска при помощи jquery*/
 	$("#telephone").mask("+7 (999) 99-99-999", {autoclear: false, placeholder:" "});
-
+	$("#guestTelephone").mask("+7 (999) 99-99-999", {autoclear: false, placeholder:" "});
 
 	$("#login").on("keyup", function() { // Выполняем при изменении логина
 		my = new Check (document.getElementsByTagName('input')['login']);
@@ -28,4 +28,5 @@ $(document).ready(() => {
         my._checkPasswords(value1, value2)
 
 	});
+
 });

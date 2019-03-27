@@ -20,6 +20,7 @@ textarea {
 	background: #000000 url(../images/main/header.jpeg) no-repeat center;
 	color: #FF4500;
 }
+
 .logo {
 	justify-content: left;
 	padding: 10px;
@@ -89,6 +90,7 @@ textarea {
 	justify-content: center;
 	text-align: center;
 }
+
 .main-text-item {
 	width: 500px;
 	border: 2px solid #FF4500;
@@ -106,15 +108,19 @@ textarea {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+
 .button {
 	color:#FF4500CC;
 	height:30px;
 	background-color: #000000;
 	border-radius: 20px;
+	border-color: #FF4500CC;
 }
+
 .button:hover {
 	color: #000000;
 	background-color: #FF4500CC;
+	border-color: #000001;
 }
 
 /*item*/
@@ -150,6 +156,7 @@ textarea {
 	border-radius: 20px;
 	border: 2px solid #000000;
 }
+
 .product {
 	transform: rotate(0) scale(1);
 	display: inline-block;
@@ -157,6 +164,7 @@ textarea {
 	border-radius: 30px;
 	width: 600px;
 }
+
 .big-item-information {
 	padding-bottom: 10px;
 }
@@ -172,7 +180,7 @@ textarea {
 	display: none;
 }
 
-.reg {
+.reg, #guestOrder {
 	transform: rotate(0) scale(1);
 	display: inline-block;
 	text-align: center;
@@ -182,6 +190,12 @@ textarea {
 	padding: 10px;
 	margin: 40px;
 	width: 330px;
+}
+
+
+#guestOrder {
+	width: 250px;
+	border-radius: 20px;
 }
 
 .field {
@@ -234,6 +248,42 @@ input:focus{
 
 }
 /*end registration*/
+
+/*table */
+.table {
+	display: inline-block;
+	text-align: center;
+	border: 2px solid black;
+	background-color: #FF4500CC;
+	border-spacing: 7px 5px; 
+}
+
+th {
+	background: #FF4500;  
+    padding: 5px; 
+}
+
+td {
+	background: #FF4500;  
+    padding: 5px; 
+}
+
+.add_basket {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.totat_h2 {
+	display: inline-block;
+	text-align: center;
+	background-color: #FF4500CC;
+	padding: 10px;
+	border-radius: 20px;
+	color:black;
+}
+
+/*end table*/
+
 
 #footer {
 	padding: 10px;

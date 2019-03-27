@@ -1,6 +1,5 @@
 <?php
-//session_start();
-//$isAuth = 0;
+
 /**
  * Основной шаблон
  * ===============
@@ -38,16 +37,15 @@
         <ul>
             <li><a href="index.php">Главная  </a></li>
             <li><a href="index.php?c=page&act=catalog">Каталог </a></li>
-		<!--<li><a href="index.php?c=page&act=registration">Войти / Регистрация </a></li>-->
-            <li><a href="index.php?c=page&act=basket">Корзина</a></li>
+            <li><a href="index.php?c=page&act=basket">Корзина </a></li>
 
         <?php
         if ($user['name']) {
             echo '<li><a href="index.php?c=user&act=logout">Выйти ('. $user['name'] .')</a></li>';
             //проверка на админа => открываем еще окно спец. для него
-            //if ($user['role']) {
-                //echo ' | <a href="index.php?c=admin&act=orders">Управление заказами</a>';
-            //}
+            if ($user['role']) {
+                echo ' <li><a href="index.php?c=admin&act=orders">Управление</a></li>';
+            }
         } else {
             echo '<li><a href="index.php?c=user&act=registration">Войти / Регистрация </a></li>';
         }

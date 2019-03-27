@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 18 2019 г., 02:12
+-- Время создания: Мар 28 2019 г., 02:05
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.1.22
 
@@ -21,6 +21,83 @@ SET time_zone = "+00:00";
 --
 -- База данных: `shop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `basket`
+--
+
+CREATE TABLE `basket` (
+  `id` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `id_guest` int(11) DEFAULT NULL,
+  `count` int(11) NOT NULL,
+  `ordered` int(1) DEFAULT NULL,
+  `in_work` int(1) DEFAULT NULL,
+  `sent` int(1) DEFAULT NULL,
+  `exist` int(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `basket`
+--
+
+INSERT INTO `basket` (`id`, `id_product`, `id_user`, `id_guest`, `count`, `ordered`, `in_work`, `sent`, `exist`) VALUES
+(1, 1, 2, 0, 6, 1, 1, NULL, 1),
+(2, 2, 2, 0, 4, 1, 1, NULL, 1),
+(3, 7, 2, 0, 2, 1, 1, 1, 1),
+(9, 10, 2, 0, 2, 1, NULL, NULL, 0),
+(11, 6, 2, 0, 5, 1, NULL, NULL, 1),
+(12, 8, 2, 0, 3, 1, NULL, NULL, 1),
+(23, 6, 2, 0, 1, NULL, NULL, NULL, 1),
+(24, 9, 2, 0, 1, NULL, NULL, NULL, 1),
+(25, 10, 2, 0, 1, NULL, NULL, NULL, 1),
+(29, 1, NULL, 1, 3, NULL, NULL, NULL, 1),
+(30, 2, NULL, 1, 1, NULL, NULL, NULL, 1),
+(31, 3, NULL, 1, 1, NULL, NULL, NULL, 1),
+(32, 4, NULL, 1, 1, NULL, NULL, NULL, 1),
+(41, 1, NULL, 19, 1, NULL, NULL, NULL, 1),
+(42, 2, NULL, 19, 2, NULL, NULL, NULL, 1),
+(44, 1, NULL, 21, 1, NULL, NULL, NULL, 1),
+(45, 1, NULL, 22, 2, NULL, NULL, NULL, 1),
+(47, 6, NULL, 22, 1, NULL, NULL, NULL, 1),
+(52, 1, NULL, 23, 1, NULL, NULL, NULL, 1),
+(54, 1, NULL, 25, 1, NULL, NULL, NULL, 1),
+(55, 5, NULL, 26, 1, NULL, NULL, NULL, 1),
+(58, 3, 2, NULL, 1, NULL, NULL, NULL, 1),
+(59, 4, 2, NULL, 1, NULL, NULL, NULL, 1),
+(60, 1, 8, 28, 2, 1, NULL, NULL, 1),
+(61, 2, 8, 28, 1, 1, NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `guests`
+--
+
+CREATE TABLE `guests` (
+  `id` int(11) NOT NULL,
+  `cookie` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `guests`
+--
+
+INSERT INTO `guests` (`id`, `cookie`) VALUES
+(1, 'Tuesday 26th 2019f March 2019 11:0:47 PM'),
+(12, 'Wednesday 27th 2019f March 2019 03:0:52 PM'),
+(15, 'Wednesday 27th 2019f March 2019 03:0:39 PM'),
+(16, 'Wednesday 27th 2019f March 2019 03:0:20 PM'),
+(17, 'Wednesday 27th 2019f March 2019 03:0:26 PM'),
+(19, 'Wednesday 27th 2019f March 2019 04:0:20 PM'),
+(21, 'Wednesday 27th 2019f March 2019 04:0:27 PM'),
+(22, 'Wednesday 27th 2019f March 2019 04:0:45 PM'),
+(23, 'Wednesday 27th 2019f March 2019 05:0:22 PM'),
+(26, 'Wednesday 27th 2019f March 2019 05:0:47 PM'),
+(28, 'Wednesday 27th 2019f March 2019 05:0:08 PM');
 
 -- --------------------------------------------------------
 
@@ -61,11 +138,11 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `volume`, `description`)
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `login` varchar(15) NOT NULL,
+  `login` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `name` varchar(15) NOT NULL,
   `lastName` varchar(20) NOT NULL,
   `telephone` varchar(20) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `role` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -74,12 +151,27 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `name`, `lastName`, `telephone`, `password`, `role`) VALUES
-(1, 'admin', 'Админ', 'Админ', '+7 (111) 11-11-111', '3cf108a4e0a498347a5a75a792f2321221232f297a57a5a743894a0e4a801fc3', NULL),
-(2, 'user', 'Пользователь', 'Пользователь', '+7 (222) 22-22-222', 'ee32c060ac0caa70b04e25091bbc11eeee11cbb19052e40b07aac0ca060c23ee', NULL);
+(1, 'admin', 'Админ', 'Админ', '+7 (111) 11-11-111', '3cf108a4e0a498347a5a75a792f2321221232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'user', 'Пользователь', 'Пользователь', '+7 (222) 22-22-222', 'ee32c060ac0caa70b04e25091bbc11eeee11cbb19052e40b07aac0ca060c23ee', NULL),
+(8, '0', 'Гость', 'Какой-то', '+7 (444) 44-44-444', '0', NULL);
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `basket`
+--
+ALTER TABLE `basket`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `basket_product` (`id_product`),
+  ADD KEY `basket_user` (`id_user`);
+
+--
+-- Индексы таблицы `guests`
+--
+ALTER TABLE `guests`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `products`
@@ -98,6 +190,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `basket`
+--
+ALTER TABLE `basket`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT для таблицы `guests`
+--
+ALTER TABLE `guests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
@@ -107,7 +211,17 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `basket`
+--
+ALTER TABLE `basket`
+  ADD CONSTRAINT `basket_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
